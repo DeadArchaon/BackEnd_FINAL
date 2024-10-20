@@ -14,7 +14,7 @@ async function hashExistingPasswords() {
     console.log(`Found ${users.length} users`);
 
     for (let user of users) {
-      if (!user.password.startsWith('$2b$')) { // Check if password is not already hashed
+      if (!user.password.startsWith('$2b$')) {
         const hashedPassword = await bcrypt.hash(user.password, 10);
         await UserModel.updateOne({ _id: user._id }, { password: hashedPassword });
         console.log(`Hashed password for user: ${user.email}`);
