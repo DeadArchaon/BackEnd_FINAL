@@ -72,7 +72,7 @@ class UserService {
         process.env.JWT_SECRET!
       );
   
-      console.log('Token generated:', token); // Log the generated token
+      console.log('Token generated:', token);
   
       return { user: foundUser, accessToken: token };
     } catch (error) {
